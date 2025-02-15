@@ -1,0 +1,22 @@
+/* bugSolution.css */
+
+/* This solution uses a JavaScript fallback to detect keyboard focus and add a class.  This ensures consistent styling across all browsers and assistive technologies.  It might be preferable in some situations but could be more complicated.
+   Consider browser compatibility and other implications before using this. */
+
+.focusable {
+  outline: none; /* Reset default focus outline */
+}
+
+.focusable:focus {
+  outline: 2px solid blue; /* Focus outline for keyboard focus */
+}
+
+/* JavaScript to handle focus in a more reliable way */
+<script>
+  document.addEventListener('focusin', function(event) {
+    event.target.classList.add('focus');
+  });
+  document.addEventListener('focusout', function(event) {
+    event.target.classList.remove('focus');
+  });
+</script>
